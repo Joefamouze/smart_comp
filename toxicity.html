@@ -6,9 +6,9 @@
     <script>
         const threshold = 0.9;
         toxicity.load(threshold).then(model => {
-            const sentences = ['you look very ugly'];
+            const sentences = prompt("type in a sentence for sentiment analysis");
             model.classify(sentences).then(predictions => {
-                console.log(predictions);
+                alert(predictions);
                 for (i = 0; i < 7; i++) {
                     if (predictions[i].results[0].match) {
                         console.log(predictions[i].label +

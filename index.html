@@ -4,11 +4,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
     <script>
-        const threshold = 0.9;
+        const threshold = 0.8;
         toxicity.load(threshold).then(model => {
-            const sentences = prompt("type in a sentence for sentiment analysis");
+            const sentences = prompt("type in a sentence for sentiment analysis", " ");
             model.classify(sentences).then(predictions => {
-                alert(predictions);
+                alert(JSON.stringify(predictions));
                 for (i = 0; i < 7; i++) {
                     if (predictions[i].results[0].match) {
                         console.log(predictions[i].label +
@@ -21,6 +21,14 @@
     </script>
 </head>
 
-<body></body>
+<body>
+    <h1>Sentiment Analysis</h1>
+    <p>The amount of toxicity in the words on social media is alarming. Sometimes you might<br>
+        inadvertently say these hurtful words contextually.</p>
+    <p>This web model is here to check the toxicity of your text, if you are doubtful if it is toxic, just type the
+        content in the prompt<br>
+        The result will come be displayed on your screen after the sentence has been analyzed<br>
+        Check the through the result in square brackets, if any returns true, then the word is toxic therefore not good.<br>
+        The essence of this project is to reduce the amount of hate words we use on social media.</p></body>
 
 </html>

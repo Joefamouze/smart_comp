@@ -4,11 +4,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
     <script>
-        const threshold = 0.8;
+        const threshold = 0.9;
         toxicity.load(threshold).then(model => {
             const sentences = prompt("type in a sentence for sentiment analysis", " ");
             model.classify(sentences).then(predictions => {
-                alert(JSON.stringify(predictions));
+                    alert(JSON.stringify(predictions));   
                 for (i = 0; i < 7; i++) {
                     if (predictions[i].results[0].match) {
                         console.log(predictions[i].label +
